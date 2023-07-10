@@ -165,4 +165,34 @@ public class SafeInput {
 
         return value;
     }
+
+    public static void prettyHeader(String msg) {
+        int headerWidth = 60;
+        int msgLength = msg.length();
+        int spaceLength = (headerWidth - msgLength - 6) / 2; // Calculate the number of spaces on each side of the message
+
+        String starsLine = "";
+        String messageLine = "";
+
+        for (int i = 0; i < headerWidth; i++) {
+            starsLine += "*";
+        }
+
+        messageLine += "***";
+        for (int i = 0; i < spaceLength; i++) {
+            messageLine += " ";
+        }
+        messageLine += msg;
+        for (int i = 0; i < spaceLength; i++) {
+            messageLine += " ";
+        }
+        if (msgLength % 2 != 0) {
+            messageLine += " ";
+        }
+        messageLine += "***";
+
+        System.out.println(starsLine);
+        System.out.println(messageLine);
+        System.out.println(starsLine);
+    }
 }
